@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { FhevmInstance, createInstance } from '@zama-fhe/relayer-sdk';
 
+// 添加类型声明
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
+}
+
 interface GameState {
   gameActive: boolean;
   gameEndTime: number;
@@ -36,7 +43,7 @@ const Home: React.FC = () => {
   const [gameResult, setGameResult] = useState<string>('');
 
   // 合约地址和ABI (部署后需要更新)
-  const CONTRACT_ADDRESS = '0x...'; // 部署后更新
+  const CONTRACT_ADDRESS = 0xC3F7A6C5590572eCCd4C96a04956aFAf8DF9F9dd; // 部署后更新
   const CONTRACT_ABI = [
     {
       "inputs": [
